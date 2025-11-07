@@ -1,0 +1,71 @@
+/* Aturan Dasar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; 
+    padding: 0;
+}
+
+/* --- Gaya Header Hijau --- */
+.header-hijau {
+    background-color: #4CAF50; /* Kode warna Hijau */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header-hijau h1 {
+    margin: 0;
+    font-size: 2.5em; 
+}
+
+.header-hijau h2 {
+    margin: 5px 0 0 0;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+/* --- Gaya Navigasi Gelap --- */
+.nav-gelap {
+    background-color: #333; /* Kode warna Abu-abu gelap/Hitam */
+    color: white;
+    padding: 0 10px;
+}
+
+.nav-gelap ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    display: flex; /* Membuat menu horizontal */
+}
+
+.nav-gelap li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none; 
+    font-weight: normal;
+}
+
+/* --- Gaya Konten Utama dan 3 Kolom Kuning --- */
+.konten-utama {
+    background-color: #FFFF99; /* Kode warna Kuning muda */
+    padding: 20px;
+    display: flex; /* Kunci untuk tata letak 3 kolom */
+    gap: 20px; /* Jarak antar kolom */
+}
+
+.kolom {
+    flex: 1; /* Membuat setiap kolom memiliki lebar yang sama (1/3) */
+    padding: 10px;
+}
+
+.kolom h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.kolom p {
+    text-align: justify;
+    line-height: 1.5;
+}

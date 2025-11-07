@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Web Dasar - UNIVRAB</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET DASAR */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Nunito", sans-serif;
+    }
+
+    body {
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    /* === HEADER === */
+    header {
+      /* Mengganti linear-gradient dengan warna solid utama untuk penyederhanaan */
+      background-color: #7A1C1C; 
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* === NAVBAR === */
+    nav {
+      background-color: #5E1313;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.9rem 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s, border-bottom 0.3s;
+      border-bottom: 3px solid transparent;
+      padding-bottom: 5px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #F2B705;
+      border-bottom: 3px solid #F2B705;
+    }
+
+    /* === CONTENT CONTAINER === */
+    .content {
+      background-color: #fff7e6;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Dipusatkan */
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    /* === KOLOM INDIVIDU === */
+    .column {
+      background-color: #fff;
+      width: 30%;
+      min-width: 280px; /* Lebar minimum disesuaikan sedikit */
+      margin: 1rem;
+      padding: 1.5rem;
+      border-radius: 10px; /* Disederhanakan dari 16px */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 6px solid #F2B705;
+    }
+
+    .column:hover {
+      transform: translateY(-4px); /* Efek hover disederhanakan */
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .column h3 {
+      color: #7A1C1C;
+      margin-bottom: 0.8rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .column p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: #7A1C1C;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* MEDIA QUERY RESPONSIVITAS */
+    @media (max-width: 768px) {
+      .column {
+        width: 100%; /* Kolom mengisi penuh di layar kecil */
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Universitas Abdurrab (UNIVRAB)</h1>
+    <h2>Program Studi Teknik Informatika — Aplikasi Web Dasar</h2>
+  </header>
+
+  <nav>
+    <a href="#" class="active" data-page="profil" onclick="showContent(this)">Profil</a>
+    <a href="#" data-page="materi" onclick="showContent(this)">Materi</a>
+    <a href="#" data-page="penugasan" onclick="showContent(this)">Penugasan</a>
+  </nav>
+
+  <section class="content" id="main-content">
+    <div class="column">
+      <h3>Sejarah Universitas Abdurrab</h3>
+      <p>Universitas Abdurrab (UNIVRAB) resmi berdiri pada 7 Juni 2005 berdasarkan SK Mendiknas No. 75/D/O/2005. Cikal bakalnya berasal dari Chest Clinic tahun 1979 yang berkembang menjadi RS Prof. Dr. H. Tabrani Rab dan Yayasan Abdurrab Pekanbaru.</p>
+    </div>
+    <div class="column">
+      <h3>Profil Kampus</h3>
+      <p>Kampus UNIVRAB berlokasi di Jl. Riau Ujung No. 73, Pekanbaru. Memiliki auditorium 700 kursi, 80 ruang kuliah, 19 laboratorium, serta jaringan internet di seluruh area kampus.</p>
+    </div>
+    <div class="column">
+      <h3>Informasi Umum</h3>
+      <p>No. Telp: (0761) 38762<br>Fax: (0761) 859839<br>Website: <a href="https://www.univrab.ac.id" target="_blank">www.univrab.ac.id</a><br>Email: humas@univrab.ac.id</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Universitas Abdurrab (UNIVRAB). All Rights Reserved.
+  </footer>
+
+  <script>
+    // 1. Definisikan semua konten dalam satu objek (membuat kode lebih rapi)
+    const pageContent = {
+        'profil': `
+            <div class="column">
+              <h3>Sejarah Universitas Abdurrab</h3>
+              <p>Universitas Abdurrab (UNIVRAB) berdiri resmi pada 7 Juni 2005 berdasarkan SK Mendiknas No. 75/D/O/2005. Bermula dari Chest Clinic tahun 1979 yang berkembang menjadi RS Prof. Dr. H. Tabrani Rab dan Yayasan Abdurrab Pekanbaru.</p>
+            </div>
+            <div class="column">
+              <h3>Visi & Misi</h3>
+              <p>Menjadi universitas unggul berbasis nilai islami dengan visi membentuk generasi cerdas, berakhlak, dan siap bersaing di dunia global.</p>
+            </div>
+            <div class="column">
+              <h3>Data Kampus</h3>
+              <p><strong>Mahasiswa Aktif:</strong> 3107<br>
+              <strong>Alumni:</strong> 8255<br>
+              <strong>Fakultas:</strong> 4<br>
+              <strong>Program Studi:</strong> 19</p>
+            </div>
+        `,
+        'materi': `
+            <div class="column">
+              <h3>Pengenalan Web Development</h3>
+              <p>Mempelajari konsep dasar pengembangan web, termasuk cara kerja browser, server, dan bagaimana HTML, CSS, dan JavaScript berkolaborasi membentuk halaman interaktif.</p>
+            </div>
+            <div class="column">
+              <h3>Desain Responsif & User Experience</h3>
+              <p>Mempelajari teknik desain web yang adaptif terhadap berbagai ukuran layar dan prinsip UI/UX untuk menciptakan pengalaman pengguna yang nyaman dan intuitif.</p>
+            </div>
+            <div class="column">
+              <h3>Integrasi dan Hosting</h3>
+              <p>Memahami cara menggabungkan semua komponen web menjadi satu proyek dan mempublikasikannya secara online menggunakan layanan hosting dan domain.</p>
+            </div>
+        `,
+        'penugasan': `
+            <div class="column">
+              <h3>Tugas 1: Struktur Halaman Web</h3>
+              <p>Buat halaman web pribadi yang berisi biodata singkat, daftar hobi, dan foto profil menggunakan struktur HTML yang rapi dan semantik.</p>
+            </div>
+            <div class="column">
+              <h3>Tugas 2: Desain dan Responsivitas</h3>
+              <p>Terapkan CSS untuk memperindah tampilan web dan pastikan layout tetap rapi di berbagai ukuran layar (PC, tablet, dan smartphone).</p>
+            </div>
+            <div class="column">
+              <h3>Tugas 3: Proyek Akhir Mini</h3>
+              <p>Kembangkan website bertema bebas (seperti portfolio, katalog produk, atau blog sederhana) dengan HTML, CSS, dan sedikit JavaScript interaktif.</p>
+            </div>
+        `
+    };
+
+    // 2. Fungsi showContent yang disederhanakan
+    function showContent(element) {
+      const page = element.getAttribute('data-page'); // Ambil nama halaman dari atribut data-page
+      const content = document.getElementById('main-content');
+      const links = document.querySelectorAll('nav a');
+      
+      // Hapus kelas 'active' dari semua link dan tambahkan ke link yang diklik
+      links.forEach(link => link.classList.remove('active'));
+      element.classList.add('active');
+      
+      // Terapkan transisi: fade out -> ganti konten -> fade in
+      content.style.opacity = '0';
+
+      setTimeout(() => {
+        // Menggunakan Objek pageContent untuk mengambil konten
+        content.innerHTML = pageContent[page] || pageContent['profil']; 
+        content.style.opacity = '1';
+      }, 300); // Waktu tunda harus sama dengan transition CSS (.content)
+    }
+  </script>
+
+</body>
+</html>
